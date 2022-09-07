@@ -18,26 +18,26 @@ class SimpleAdmin(admin.ModelAdmin):
 
     list_per_page = 30
 
-    # List_display_links = None  # 禁用编辑链接
-    #
-    # def has_add_permission(self, request):
-    #     # 禁用添加按钮
-    #     return False
-    #
-    # def has_delete_permission(self, request, obj=None):
-    #     # 禁用删除按钮
-    #     return False
-    #
-    # def has_change_permission(self, request, obj=None):
-    #     return False
-    #
-    # def get_actions(self, request):
-    #     # 在actions中去掉‘删除'操作
-    #     actions = super(SimpleAdmin, self).get_actions(request)
-    #     if request.user.username[0].upper() != 'J':
-    #         if 'delete_selected' in actions:
-    #             del actions['delete_selected']
-    #     return actions
+    List_display_links = None  # 禁用编辑链接
+
+    def has_add_permission(self, request):
+        # 禁用添加按钮
+        return False
+
+    def has_delete_permission(self, request, obj=None):
+        # 禁用删除按钮
+        return False
+
+    def has_change_permission(self, request, obj=None):
+        return False
+
+    def get_actions(self, request):
+        # 在actions中去掉‘删除'操作
+        actions = super(SimpleAdmin, self).get_actions(request)
+        if request.user.username[0].upper() != 'J':
+            if 'delete_selected' in actions:
+                del actions['delete_selected']
+        return actions
 
     class Meta:
         model = Simple
