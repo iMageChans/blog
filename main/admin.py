@@ -4,6 +4,10 @@ from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
 from django.contrib.auth.admin import GroupAdmin
 from django.contrib.auth.models import User, Group
 
+admin.site.site_title = "PickMe统计后台"
+admin.site.site_header = "PickMe统计后台"
+admin.site.index_title = "PickMe统计后台"
+
 
 class SimpleAdmin(admin.ModelAdmin):
     list_display = ['memberAdd',
@@ -11,6 +15,8 @@ class SimpleAdmin(admin.ModelAdmin):
                     'quantityPaid',
                     'totalRecharge',
                     ]
+
+    list_per_page = 30
 
     # List_display_links = None  # 禁用编辑链接
     #
@@ -40,6 +46,9 @@ admin.site.register(Simple, SimpleAdmin)
 
 
 class MainAdmin(admin.ModelAdmin):
+
+    list_per_page = 30
+
     list_display = ['dateTime',
                     'regMember',
                     'toDayActivity',
