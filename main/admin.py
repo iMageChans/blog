@@ -20,24 +20,24 @@ class SimpleAdmin(admin.ModelAdmin):
 
     List_display_links = None  # 禁用编辑链接
 
-    def has_add_permission(self, request):
-        # 禁用添加按钮
-        return False
-
-    def has_delete_permission(self, request, obj=None):
-        # 禁用删除按钮
-        return False
-
-    def has_change_permission(self, request, obj=None):
-        return False
-
-    def get_actions(self, request):
-        # 在actions中去掉‘删除'操作
-        actions = super(SimpleAdmin, self).get_actions(request)
-        if request.user.username[0].upper() != 'J':
-            if 'delete_selected' in actions:
-                del actions['delete_selected']
-        return actions
+    # def has_add_permission(self, request):
+    #     # 禁用添加按钮
+    #     return False
+    #
+    # def has_delete_permission(self, request, obj=None):
+    #     # 禁用删除按钮
+    #     return False
+    #
+    # def has_change_permission(self, request, obj=None):
+    #     return False
+    #
+    # def get_actions(self, request):
+    #     # 在actions中去掉‘删除'操作
+    #     actions = super(SimpleAdmin, self).get_actions(request)
+    #     if request.user.username[0].upper() != 'J':
+    #         if 'delete_selected' in actions:
+    #             del actions['delete_selected']
+    #     return actions
 
     class Meta:
         model = Simple
@@ -61,26 +61,26 @@ class MainAdmin(admin.ModelAdmin):
                     'candyConversion',
                     ]
 
-    List_display_links = None  # 禁用编辑链接
-
-    def has_add_permission(self, request):
-        # 禁用添加按钮
-        return False
-
-    def has_delete_permission(self, request, obj=None):
-        # 禁用删除按钮
-        return False
-
-    def has_change_permission(self, request, obj=None):
-        return False
-
-    def get_actions(self, request):
-        # 在actions中去掉‘删除'操作
-        actions = super(MainAdmin, self).get_actions(request)
-        if request.user.username[0].upper() != 'J':
-            if 'delete_selected' in actions:
-                del actions['delete_selected']
-        return actions
+    # List_display_links = None  # 禁用编辑链接
+    #
+    # def has_add_permission(self, request):
+    #     # 禁用添加按钮
+    #     return False
+    #
+    # def has_delete_permission(self, request, obj=None):
+    #     # 禁用删除按钮
+    #     return False
+    #
+    # def has_change_permission(self, request, obj=None):
+    #     return False
+    #
+    # def get_actions(self, request):
+    #     # 在actions中去掉‘删除'操作
+    #     actions = super(MainAdmin, self).get_actions(request)
+    #     if request.user.username[0].upper() != 'J':
+    #         if 'delete_selected' in actions:
+    #             del actions['delete_selected']
+    #     return actions
 
     class Meta:
         model = Main
