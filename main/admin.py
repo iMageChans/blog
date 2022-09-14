@@ -16,6 +16,8 @@ class SimpleAdmin(admin.ModelAdmin):
                     'totalRecharge',
                     ]
 
+    list_display_links = ()
+
     list_per_page = 30
 
     List_display_links = None  # 禁用编辑链接
@@ -46,8 +48,7 @@ admin.site.register(Simple, SimpleAdmin)
 
 
 class MainAdmin(admin.ModelAdmin):
-
-    list_per_page = 30
+    list_display_links = ()
 
     list_display = ['dateTime',
                     'regMember',
@@ -60,6 +61,8 @@ class MainAdmin(admin.ModelAdmin):
                     'memberConversionRate',
                     'candyConversion',
                     ]
+
+    list_per_page = 30
 
     List_display_links = None  # 禁用编辑链接
 
