@@ -10,6 +10,9 @@ admin.site.index_title = "PickMe统计后台"
 
 
 class SimpleAdmin(admin.ModelAdmin):
+
+    list_display_links = None
+
     list_display = ['memberAdd',
                     'activeUsers',
                     'quantityPaid',
@@ -18,7 +21,7 @@ class SimpleAdmin(admin.ModelAdmin):
 
     list_per_page = 30
 
-    List_display_links = ('id')  # 禁用编辑链接
+    readonly_fields = [field.name for field in Simple._meta.fields]
 
     def has_add_permission(self, request):
         # 禁用添加按钮
@@ -47,6 +50,8 @@ admin.site.register(Simple, SimpleAdmin)
 
 class MainAdmin(admin.ModelAdmin):
 
+    list_display_links = None
+
     list_display = ['dateTime',
                     'regMember',
                     'toDayActivity',
@@ -61,7 +66,7 @@ class MainAdmin(admin.ModelAdmin):
 
     list_per_page = 30
 
-    List_display_links = ('id')  # 禁用编辑链接
+    readonly_fields = [field.name for field in Main._meta.fields]
 
     def has_add_permission(self, request):
         # 禁用添加按钮
