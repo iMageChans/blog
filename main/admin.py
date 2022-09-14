@@ -16,11 +16,9 @@ class SimpleAdmin(admin.ModelAdmin):
                     'totalRecharge',
                     ]
 
-    list_display_links = ()
-
     list_per_page = 30
 
-    List_display_links = None  # 禁用编辑链接
+    List_display_links = ('id')  # 禁用编辑链接
 
     def has_add_permission(self, request):
         # 禁用添加按钮
@@ -48,7 +46,6 @@ admin.site.register(Simple, SimpleAdmin)
 
 
 class MainAdmin(admin.ModelAdmin):
-    list_display_links = ()
 
     list_display = ['dateTime',
                     'regMember',
@@ -64,7 +61,7 @@ class MainAdmin(admin.ModelAdmin):
 
     list_per_page = 30
 
-    List_display_links = None  # 禁用编辑链接
+    List_display_links = ('id')  # 禁用编辑链接
 
     def has_add_permission(self, request):
         # 禁用添加按钮
